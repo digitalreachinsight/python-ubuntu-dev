@@ -37,7 +37,12 @@ RUN chmod 755 /startup.sh && \
     mkdir /app && \
     chown -R coder.coder /app && \    
     ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-        
+
+# colored prompt
+RUN echo 'if ! [ -n "${SUDO_USER}" -a -n "${SUDO_PS1}" ]; then' >> /etc/bash.bashrc
+RUN echo "export PS1='\[\e[0;31mdev:\e[0;32m \u@\h:~ \e[0;34m\W\$\e\[\e[0m\] '" >> /etc/bash.bashrc
+RUN echo "fi" >> /etc/bash.bashrc
+
 # Install Python libs from requirements.txt.
 FROM builder_base_ubuntudev as python_libs_ubuntudev
 WORKDIR /app
