@@ -30,8 +30,6 @@ COPY startup.sh /
 COPY ./timezone /etc/timezone
 RUN chmod 755 /startup.sh && \
     chmod +s /startup.sh && \
-    chmod 755 /pre_startup.sh && \
-    chmod +s /pre_startup.sh && \
     groupadd -g 1200 coder && \
     useradd -g 1200 -u 1200 coder -s /bin/bash -d /app && \
     usermod -a -G sudo coder && \    
