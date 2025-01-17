@@ -35,7 +35,7 @@ RUN chmod 755 /startup.sh && \
     usermod -a -G sudo coder && \    
     mkdir /app && \
     chown -R coder.coder /app && \    
-    ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone && \
+    ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
         
 # Install Python libs from requirements.txt.
 FROM builder_base_ubuntudev as python_libs_ubuntudev
