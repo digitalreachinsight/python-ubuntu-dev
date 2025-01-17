@@ -2,6 +2,7 @@
 FROM ubuntu:24.04 as builder_base_ubuntudev
 ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=Australia/Perth
+ENV NODE_MAJOR=20
 
 RUN apt-get clean
 RUN apt-get update
